@@ -12,15 +12,35 @@ export default function Contact() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    // Simulate sending — wire up with EmailJS / Formspree / backend
-    await new Promise((r) => setTimeout(r, 1500));
-    setSending(false);
-    setSent(true);
-    setForm({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setSent(false), 4000);
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', ...form }),
+      });
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSent(false), 4000);
+      } else {
+        console.error('Netlify Form submission failed response:', response);
+        alert('Form submission failed. Please try again or email me directly.');
+      }
+    } catch (error) {
+      console.error('Netlify Form submission error:', error);
+      alert('An error occurred. Please try again or email me directly.');
+    } finally {
+      setSending(false);
+    }
   };
 
   const contacts = [
@@ -129,6 +149,7 @@ export default function Contact() {
             className="lg:col-span-3"
           >
             <form onSubmit={handleSubmit} className="card space-y-4">
+              <input type="hidden" name="form-name" value="contact" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-mono block mb-1.5" style={{ color: 'var(--text-dim)' }}>Your Name</label>
