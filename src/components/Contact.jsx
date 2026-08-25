@@ -148,7 +148,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="card space-y-4">
+            <form name="contact" method="POST" onSubmit={handleSubmit} className="card space-y-4">
               <input type="hidden" name="form-name" value="contact" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
