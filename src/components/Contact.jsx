@@ -12,12 +12,6 @@ export default function Contact() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
@@ -25,7 +19,7 @@ export default function Contact() {
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', ...form }),
+        body: new URLSearchParams({ 'form-name': 'contact', ...form }).toString(),
       });
       if (response.ok) {
         setSent(true);
@@ -148,7 +142,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-3"
           >
-            <form name="contact" method="POST" onSubmit={handleSubmit} className="card space-y-4">
+            <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="card space-y-4">
               <input type="hidden" name="form-name" value="contact" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
