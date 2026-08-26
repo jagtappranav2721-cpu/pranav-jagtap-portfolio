@@ -54,7 +54,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-end overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-start sm:justify-end overflow-hidden"
       style={{ backgroundColor: 'var(--bg-void)' }}
     >
       {/* Background grid */}
@@ -127,7 +127,7 @@ export default function Hero() {
       />
 
       {/* Main content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-36 sm:pb-44 lg:pb-52 pt-24 sm:pt-28">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-36 sm:pb-44 lg:pb-52 pt-20 sm:pt-28">
 
 
         {/* Name */}
