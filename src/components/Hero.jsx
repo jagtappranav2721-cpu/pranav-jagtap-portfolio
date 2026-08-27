@@ -72,22 +72,12 @@ export default function Hero() {
       {/* Neural Network Background */}
       <div className="neural-bg">
         {neuralNodes.map((node) => (
-          <motion.div
+          <div
             key={node.id}
             className="neural-node"
             style={{
               left: node.left,
               top: node.top,
-            }}
-            animate={{
-              opacity: [0.2, 0.7, 0.2],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: node.duration,
-              repeat: Infinity,
-              delay: node.delay,
-              ease: 'easeInOut',
             }}
           >
             <div
@@ -102,7 +92,7 @@ export default function Hero() {
                 transform: `rotate(${node.rotation}deg)`,
               }}
             />
-          </motion.div>
+          </div>
         ))}
       </div>
 
@@ -233,7 +223,7 @@ export default function Hero() {
               whileHover={{ scale: 1.15, y: -2 }}
               whileTap={{ scale: 0.9 }}
               aria-label={s.label}
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass flex items-center justify-center transition-colors duration-200 hover:border-indigo-500/40"
+              className="w-11 h-11 rounded-xl glass flex items-center justify-center transition-colors duration-200 hover:border-indigo-500/40"
               style={{ color: 'var(--text-muted)' }}
             >
               {s.icon}

@@ -159,27 +159,28 @@ export default function Navbar() {
             </div>
 
             {/* Mobile: toggle + hamburger */}
-            <div className="flex md:hidden items-center gap-2">
+            <div className="flex md:hidden items-center gap-3">
               <motion.button
                 onClick={toggleTheme}
                 whileTap={{ scale: 0.9 }}
                 className="theme-toggle"
-                style={{ width: 44, height: 24 }}
+                style={{ width: 48, height: 28 }}
                 aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               >
-                <div className="theme-toggle-knob" style={{ width: 18, height: 18, top: 3, left: theme === 'light' ? 3 : 'calc(100% - 21px)' }}>
+                <div className="theme-toggle-knob" style={{ width: 20, height: 20, top: 3, left: theme === 'light' ? 3 : 'calc(100% - 23px)' }}>
                   {theme === 'light' ? (
-                    <FiSun size={10} color="#92400e" strokeWidth={2.5} />
+                    <FiSun size={12} color="#92400e" strokeWidth={2.5} />
                   ) : (
-                    <FiMoon size={10} color="#4c1d95" strokeWidth={2.5} />
+                    <FiMoon size={12} color="#4c1d95" strokeWidth={2.5} />
                   )}
                 </div>
               </motion.button>
 
               <button
-                className="p-2 transition-colors"
+                className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors"
                 style={{ color: 'var(--text-muted)' }}
                 onClick={() => setMobileOpen(!mobileOpen)}
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
                 {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
               </button>
@@ -204,7 +205,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className={`px-4 py-3 text-sm rounded-lg text-left transition-all duration-200 ${
+                  className={`px-4 py-3.5 text-sm rounded-lg text-left transition-all duration-200 ${
                     active === link.href.slice(1)
                       ? 'text-indigo-400 bg-indigo-500/10'
                       : 'hover:bg-white/5'

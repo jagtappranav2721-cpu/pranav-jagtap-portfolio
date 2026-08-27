@@ -18,8 +18,8 @@
     --text-primary: #f1f5f9;
     --text-secondary: #e2e8f0;
     --text-body: #94a3b8;
-    --text-muted: #64748b;
-    --text-dim: #475569;
+    --text-muted: #8292a6;
+    --text-dim: #64748b;
     --text-faint: #334155;
 
     --glass-bg: rgba(13, 13, 20, 0.7);
@@ -68,9 +68,9 @@
 
     --text-primary: #0f172a;
     --text-secondary: #1e293b;
-    --text-body: #475569;
-    --text-muted: #64748b;
-    --text-dim: #94a3b8;
+    --text-body: #334155;
+    --text-muted: #4a5568;
+    --text-dim: #5c697a;
     --text-faint: #cbd5e1;
 
     --glass-bg: rgba(255, 255, 255, 0.75);
