@@ -1,8 +1,19 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from 'react-icons/fi';
 import { personalInfo } from '../data';
 
 export default function Footer() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
@@ -74,21 +85,28 @@ export default function Footer() {
       </div>
 
       {/* Back to top */}
-      <motion.button
-        onClick={scrollToTop}
-        whileHover={{ scale: 1.1, y: -2 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-xl flex items-center justify-center text-indigo-400"
-        style={{
-          background: 'var(--glass-bg)',
-          border: '1px solid rgba(99,102,241,0.3)',
-          backdropFilter: 'blur(20px)',
-          boxShadow: '0 0 30px rgba(99,102,241,0.3)',
-        }}
-        aria-label="Back to top"
-      >
-        <FiArrowUp size={18} />
-      </motion.button>
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={scrollToTop}
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-xl flex items-center justify-center text-indigo-400"
+            style={{
+              background: 'var(--glass-bg)',
+              border: '1px solid rgba(99,102,241,0.3)',
+              backdropFilter: 'blur(20px)',
+              boxShadow: '0 0 30px rgba(99,102,241,0.3)',
+            }}
+            aria-label="Back to top"
+          >
+            <FiArrowUp size={18} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }

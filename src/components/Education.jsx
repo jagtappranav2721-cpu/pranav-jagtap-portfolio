@@ -7,7 +7,7 @@ export default function Education() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="education" ref={ref} className="relative py-32 overflow-hidden"
+    <section id="education" ref={ref} className="relative py-12 sm:py-32 overflow-hidden scroll-mt-20"
       style={{ background: `linear-gradient(180deg, var(--bg-void) 0%, var(--bg-surface) 50%, var(--bg-void) 100%)` }}>
 
       <div className="absolute inset-0 bg-grid opacity-20" />
@@ -18,7 +18,7 @@ export default function Education() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <p className="section-label mb-3">Background</p>
           <h2 className="section-title mb-4">
@@ -68,13 +68,13 @@ export default function Education() {
 
                   {/* Content */}
                   <div className="card hover:border-indigo-500/30 cursor-default">
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                       <div>
                         <h4 className="font-semibold" style={{ color: 'var(--text-primary)' }}>{edu.degree}</h4>
                         <p className="text-sm text-indigo-400 mt-0.5">{edu.institution}</p>
                         <p className="text-xs mt-0.5" style={{ color: 'var(--text-faint)' }}>{edu.location}</p>
                       </div>
-                      <div className="text-right ml-4 shrink-0">
+                      <div className="sm:text-right shrink-0">
                         <span className="text-xs font-mono block" style={{ color: 'var(--text-dim)' }}>{edu.period}</span>
                         <span className="text-sm font-bold text-emerald-400 mt-1 block">{edu.score}</span>
                       </div>

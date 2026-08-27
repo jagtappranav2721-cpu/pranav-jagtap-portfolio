@@ -11,7 +11,7 @@ export default function Resume() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="resume" ref={ref} className="relative py-24 overflow-hidden"
+    <section id="resume" ref={ref} className="relative py-12 sm:py-24 overflow-hidden scroll-mt-20"
       style={{ background: `linear-gradient(180deg, var(--bg-void), var(--bg-surface), var(--bg-void))` }}>
 
       {/* Ambient */}

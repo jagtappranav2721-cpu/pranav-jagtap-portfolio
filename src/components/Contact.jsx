@@ -55,7 +55,7 @@ export default function Contact() {
   });
 
   return (
-    <section id="contact" ref={ref} className="relative py-32 overflow-hidden"
+    <section id="contact" ref={ref} className="relative py-12 sm:py-32 overflow-hidden scroll-mt-20"
       style={{ backgroundColor: 'var(--bg-void)' }}>
       {/* Ambient */}
       <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[600px] h-[300px] rounded-full pointer-events-none"
@@ -67,7 +67,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <p className="section-label mb-3">Get In Touch</p>
           <h2 className="section-title mb-4">

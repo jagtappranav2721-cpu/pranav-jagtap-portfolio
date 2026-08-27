@@ -57,7 +57,7 @@ export default function Skills() {
   const colorMap = theme === 'light' ? colorMapLight : colorMapDark;
 
   return (
-    <section id="skills" ref={ref} className="relative py-32 overflow-hidden"
+    <section id="skills" ref={ref} className="relative py-12 sm:py-32 overflow-hidden scroll-mt-20"
       style={{ background: `linear-gradient(180deg, var(--bg-void) 0%, var(--bg-surface) 50%, var(--bg-void) 100%)` }}>
 
       <div className="absolute inset-0 bg-dots opacity-20" />
@@ -106,7 +106,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <p className="section-label mb-3">Technical Arsenal</p>
           <h2 className="section-title mb-4">

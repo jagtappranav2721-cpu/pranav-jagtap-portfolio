@@ -25,7 +25,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" ref={ref} className="relative py-32 overflow-hidden"
+    <section id="about" ref={ref} className="relative py-12 sm:py-32 overflow-hidden scroll-mt-20"
       style={{ backgroundColor: 'var(--bg-void)' }}>
       {/* Ambient */}
       <div
@@ -140,7 +140,7 @@ export default function About() {
           </div>
 
           {/* Right: Cards grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {traits.map((t, i) => (
               <motion.div
                 key={t.label}
@@ -169,7 +169,7 @@ export default function About() {
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
               whileHover={{ y: -4, scale: 1.02 }}
-              className="col-span-2 card gradient-border cursor-default"
+              className="col-span-1 sm:col-span-2 card gradient-border cursor-default"
               style={{ background: 'rgba(99,102,241,0.05)' }}
             >
               <div className="flex items-center justify-between">

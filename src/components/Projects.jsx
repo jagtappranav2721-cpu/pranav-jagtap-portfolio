@@ -35,7 +35,7 @@ function ProjectCard({ project, index, inView }) {
         <div className="absolute inset-0 bg-grid opacity-30" />
 
         {/* Floating stats */}
-        <div className="absolute inset-0 flex items-center justify-center gap-3 p-4">
+        <div className="absolute inset-0 flex items-center justify-center gap-2 xs:gap-3 p-2 xs:p-4">
           {project.stats.map((s) => (
             <motion.div
               key={s.label}
@@ -43,15 +43,15 @@ function ProjectCard({ project, index, inView }) {
               animate={inView ? { scale: 1, opacity: 1 } : {}}
               transition={{ delay: index * 0.15 + 0.3 }}
               whileHover={{ scale: 1.1 }}
-              className="text-center rounded-xl px-4 py-3"
+              className="text-center rounded-xl px-2.5 xs:px-4 py-2 xs:py-3 flex-1 min-w-0"
               style={{
                 background: 'var(--glass-bg)',
                 border: '1px solid rgba(99,102,241,0.2)',
                 backdropFilter: 'blur(10px)',
               }}
             >
-              <div className="font-display text-2xl font-bold gradient-text">{s.value}</div>
-              <div className="text-xs" style={{ color: 'var(--text-dim)' }}>{s.label}</div>
+              <div className="font-display text-base xs:text-2xl font-bold gradient-text truncate">{s.value}</div>
+              <div className="text-[10px] xs:text-xs truncate" style={{ color: 'var(--text-dim)' }}>{s.label}</div>
             </motion.div>
           ))}
         </div>
@@ -127,7 +127,7 @@ export default function Projects() {
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section id="projects" ref={ref} className="relative py-32 overflow-hidden"
+    <section id="projects" ref={ref} className="relative py-12 sm:py-32 overflow-hidden scroll-mt-20"
       style={{ backgroundColor: 'var(--bg-void)' }}>
       {/* Ambient */}
       <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full pointer-events-none"
@@ -141,7 +141,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <p className="section-label mb-3">Featured Work</p>
           <h2 className="section-title mb-4">

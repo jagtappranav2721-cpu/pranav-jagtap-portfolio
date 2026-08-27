@@ -256,7 +256,7 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 1 }}
         className="absolute bottom-14 sm:bottom-16 left-0 right-0 w-full px-4 flex justify-center"
       >
-        <div className="glass rounded-2xl px-4 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-4 sm:gap-8 lg:gap-12 max-w-xs sm:max-w-xl lg:max-w-3xl w-full">
+        <div className="glass rounded-2xl px-4 sm:px-8 py-3 sm:py-4 grid grid-cols-2 sm:flex sm:items-center sm:justify-center gap-4 sm:gap-8 lg:gap-12 max-w-[280px] xs:max-w-xs sm:max-w-xl lg:max-w-3xl w-full">
           {[
             { value: '9.06', label: 'CGPA', suffix: '/10' },
             { value: '3', label: 'Projects', suffix: '+' },
@@ -273,7 +273,7 @@ export default function Hero() {
                 {stat.value}
                 <span className="text-indigo-400 text-xs sm:text-sm">{stat.suffix}</span>
               </div>
-              <div className="text-xs mt-0.5 truncate" style={{ color: 'var(--text-dim)' }}>{stat.label}</div>
+              <div className="text-xs mt-0.5 truncate sm:overflow-visible sm:whitespace-normal" style={{ color: 'var(--text-dim)' }}>{stat.label}</div>
             </motion.div>
           ))}
         </div>
